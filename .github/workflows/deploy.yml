@@ -1,0 +1,62 @@
+# Build the MyST (Jupyter Book 2) site and publish it to GitHub Pages.
+# Based on the official MyST deployment workflow: https://mystmd.org/guide/deployment-github-pages
+name: MyST GitHub Pages Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  # BASE_URL tells MyST what sub-path the site is served from. For a *project*
+  # Pages site (this repo) that is "/<repo-name>". If you instead deploy from a
+  # repo literally named "<your-handle>.github.io" (served at the domain root),
+  # change this to:  BASE_URL: ''
+  BASE_URL: /${{ github.event.repository.name }}
+
+# permissions needed for the official GitHub Pages deploy action
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# only allow one concurrent deployment; do not cancel an in-progress one
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Install MyST Markdown
+        run: npm install -g mystmd
+
+      # The notebooks in this repo ship with their outputs already embedded, so
+      # the site renders them as-is (no Jupyter kernel needed here). To re-execute
+      # in CI instead, set up Python + `pip install -r requirements.txt` and run
+      # `myst build --html --execute` -- but note some chapters intentionally show
+      # errors, which would need `raises-exception` cell tags under --execute.
+      - name: Build HTML
+        run: myst build --html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_build/html
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

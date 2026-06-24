@@ -1,0 +1,104 @@
+# MyST configuration for "Python for Computational Neuroscience"
+# This is the MyST-native (Jupyter Book 2) config. It replaces the classic v1
+# pair of _config.yml + _toc.yml. Build locally with:  myst build --html
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+
+project:
+  title: Python for Computational Neuroscience
+  description: >-
+    An introductory Python programming book for students in computational
+    neuroscience and experimental psychology, starting from zero experience.
+  keywords:
+    - python
+    - computational neuroscience
+    - experimental psychology
+    - data science
+  authors:
+    - name: John Serences
+  # The GitHub repo backing the "edit"/source links and the Binder environment.
+  # (Owner must be a valid GitHub handle -- an email like jserences@ucsd.edu is
+  # not usable here.)
+  github: jserences/python_for_computational_neuroscience.github.io
+
+  # Enable in-page LIVE COMPUTE (Thebe) backed by Binder (mybinder.org). Readers
+  # get a "run" affordance on code cells and a launch button, and cells execute
+  # in a kernel built from this repo's binder/requirements.txt.
+  # NOTE: this only works once the repo is pushed to GitHub at the owner/ref
+  # below and mybinder.org has built the environment (the first launch is slow).
+  jupyter:
+    binder:
+      repo: jserences/python_for_computational_neuroscience.github.io
+      ref: main
+      provider: github
+
+  # Files that live in the repo but are not pages of the book
+  exclude:
+    - README.md
+
+  # Table of contents (replaces _toc.yml). "parts" become titled groups;
+  # the old "sections" are now "children". File extensions are required.
+  toc:
+    - file: index.md
+    - title: Content
+      children:
+        - file: lectures/P01.ipynb
+          children:
+            - file: lectures/P01-field.md
+            - file: lectures/P01-programming.md
+            - file: lectures/P01-jupyter.ipynb
+            - file: lectures/P01-python.ipynb
+            - file: lectures/P01-applications.ipynb
+        - file: lectures/P02.ipynb
+          children:
+            - file: lectures/P02-conditionals.ipynb
+            - file: lectures/P02-loops.ipynb
+            - file: lectures/P02-while.ipynb
+            - file: lectures/P02-applications.ipynb
+        - file: lectures/P03.ipynb
+          children:
+            - file: lectures/P03-sequence.ipynb
+            - file: lectures/P03-applications.ipynb
+        - file: lectures/P04.ipynb
+          children:
+            - file: lectures/P04-dictionaries.ipynb
+            - file: lectures/P04-sets.ipynb
+            - file: lectures/P04-files.ipynb
+            - file: lectures/P04-WorkingWithTextFiles.ipynb
+            - file: lectures/P04-applications.ipynb
+        - file: lectures/P05.ipynb
+          children:
+            - file: lectures/P05-functions.ipynb
+            - file: lectures/P05-applications.ipynb
+        - file: lectures/P06.ipynb
+          children:
+            - file: lectures/P06-classes.ipynb
+            - file: lectures/P06-applications.ipynb
+        - file: lectures/P07.ipynb
+          children:
+            - file: lectures/P07-Pandas.ipynb
+            - file: lectures/P07-applications.ipynb
+        - file: lectures/P08.ipynb
+          children:
+            - file: lectures/P08-Matplotlib.ipynb
+            - file: lectures/P08-applications.ipynb
+        - file: lectures/P09.ipynb
+          children:
+            - file: lectures/P09-Numpy.ipynb
+            - file: lectures/P09-applications.ipynb
+    - title: "Appendix A: A 2-Hour Python Crash Course"
+      children:
+        - file: crash_course/python-crash-course.ipynb
+    - title: "Appendix B: Coding with AI"
+      children:
+        - file: ai_coding/coding-with-ai.ipynb
+    - title: Reference
+      children:
+        - file: course/debugging.md
+        - file: course/resources.md
+
+site:
+  template: book-theme
+  options:
+    logo: logo.png
+    favicon: logo.png

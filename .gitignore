@@ -1,0 +1,25 @@
+# MyST / Jupyter Book build output
+_build/
+
+# Node (MyST bootstraps a local Node runtime; CI installs mystmd via npm)
+node_modules/
+
+# Backed-up legacy Jupyter Book v1 config (kept for reference, not used)
+*.jb1.bak
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / editor cruft
+.DS_Store
+.idea/
+.vscode/

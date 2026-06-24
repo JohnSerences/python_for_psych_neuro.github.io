@@ -1,0 +1,12 @@
+
+# P01: Computational Neuroscience and the Behavioral Sciences
+
+## What is it???
+
+The "neuroscience" and "behavioral science" part refers to the domain of study: brains and behavior -- how nervous systems represent information, and how that gives rise to perception, memory, decision-making, and action. The many disciplines that study this each focus on different aspects and different scales. Cellular and systems neuroscience are concerned with how neurons and circuits encode and transmit signals. Cognitive neuroscience asks how large-scale brain activity supports mental processes. Experimental and cognitive psychology focus on measuring behavior -- reaction times, accuracy, choices, percepts -- to infer the computations the mind performs. Psychophysics studies the precise relationship between physical stimuli and subjective experience.
+
+The "computational" part refers to the use of **computation** -- calculation using well-defined steps, which as we will learn is called an *algorithm*. Computation is carried out by computers following instructions written in a programming language. At the very minimum, such computer programs automate repetitive calculations, thus allowing the calculations to be done faster, with less effort, and without human error. However, the speed and accuracy of computer programs makes entirely new classes of tasks and calculations possible, which enables novel scientific theories, models, data sources, and predictions.
+
+Computational neuroscience and computational approaches to psychology are thus the use of computers to carry out calculations that help us understand brains and behavior. This has two facets: (1) generating and analyzing the large datasets that modern recording methods produce -- spike trains, EEG/MEG traces, fMRI time series, eye movements, trial-by-trial behavior -- and (2) simulating or fitting models (of neurons, circuits, or cognitive processes) to understand their implications and predictions. Although specific datasets, analysis methods, and models vary across these domains, there is considerable overlap in core skills and ideas.
+
+The goal of this book is to teach you how to write computer programs that are useful for understanding the brain and behavior. It is focused in particular on the earliest, steepest part of the learning curve: taking you from zero experience programming computers to a point where you can write small Python programs to run simple simulations and analyze real experimental data.
