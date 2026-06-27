@@ -1,25 +1,25 @@
-# MyST configuration for "Python for Computational Neuroscience"
+# MyST configuration for "Python for Psychology and Neuroscience"
 # This is the MyST-native (Jupyter Book 2) config. It replaces the classic v1
 # pair of _config.yml + _toc.yml. Build locally with:  myst build --html
 # See docs at: https://mystmd.org/guide/frontmatter
 version: 1
 
 project:
-  title: Python for Computational Neuroscience
+  title: Python for Psychology and Neuroscience
   description: >-
-    An introductory Python programming book for students in computational
-    neuroscience and experimental psychology, starting from zero experience.
+    An introductory Python programming book for students in experimental
+    psychology and computational neuroscience, starting from zero experience.
   keywords:
     - python
-    - computational neuroscience
     - experimental psychology
+    - computational neuroscience
     - data science
   authors:
     - name: John Serences
   # The GitHub repo backing the "edit"/source links and the Binder environment.
   # (Owner must be a valid GitHub handle -- an email like jserences@ucsd.edu is
   # not usable here.)
-  github: jserences/python_for_computational_neuroscience.github.io
+  github: jserences/python_for_psych_neuro.github.io
 
   # Enable in-page LIVE COMPUTE (Thebe) backed by Binder (mybinder.org). Readers
   # get a "run" affordance on code cells and a launch button, and cells execute
@@ -28,7 +28,7 @@ project:
   # below and mybinder.org has built the environment (the first launch is slow).
   jupyter:
     binder:
-      repo: jserences/python_for_computational_neuroscience.github.io
+      repo: jserences/python_for_psych_neuro.github.io
       ref: main
       provider: github
 
@@ -86,7 +86,7 @@ project:
           children:
             - file: lectures/P09-Numpy.ipynb
             - file: lectures/P09-applications.ipynb
-    - title: "Appendix A: A 2-Hour Python Crash Course"
+    - title: "Appendix A: Python Crash Course"
       children:
         - file: crash_course/python-crash-course.ipynb
     - title: "Appendix B: Coding with AI"
@@ -102,3 +102,4 @@ site:
   options:
     logo: logo.png
     favicon: logo.png
+    style: ./custom.css

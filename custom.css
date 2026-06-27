@@ -1,0 +1,13 @@
+/* Custom site styling for the book theme. Wired in via site.options.style. */
+
+/* Header logo: larger, and cropped into a circular aperture instead of a square.
+   The theme renders it as `.myst-home-link-logo img` (default Tailwind `h-9`,
+   i.e. 2.25rem). We override the size and round it into a circle. object-fit:
+   cover keeps the (square) avatar undistorted while filling the circle. */
+.myst-home-link-logo img {
+  height: 3.5rem !important;
+  width: 3.5rem !important;
+  border-radius: 9999px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}

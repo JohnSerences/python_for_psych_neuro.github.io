@@ -19,6 +19,9 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 
+# Stray notebook HTML exports (e.g. JupyterLab "Export as HTML")
+*.html
+
 # OS / editor cruft
 .DS_Store
 .idea/

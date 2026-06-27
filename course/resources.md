@@ -6,7 +6,7 @@ further resources, including:
 0. tools for improving your understanding
 1. additional introductory practice / perspectives  
 2. deeper understanding of python and computing
-3. more neuroscience- and psychology-relevant python exploration
+3. more psychology- and neuroscience-relevant python exploration
 4. more guided applications of python in other domains   
 
 ## 0. Tools for improving your understanding
@@ -58,7 +58,7 @@ further resources, including:
 - [reference for statsmodels](https://www.statsmodels.org/stable/index.html)
 - [reference for scikit-learn](https://scikit-learn.org/stable/user_guide.html)
 
-## 3. Neuroscience- and psychology-relevant Python resources:
+## 3. Psychology- and neuroscience-relevant Python resources:
 - [Python companion to statistical thinking in the 21st century](https://statsthinking21.github.io/statsthinking21-python/01-IntroductionToPython.html): Introduction to modern psychological/cognitive science statistics, glosses over the requisite python.
 - [MNE-Python](https://mne.tools/stable/index.html): the standard toolbox for analyzing EEG/MEG and other electrophysiology data.
 - [Nilearn](https://nilearn.github.io/stable/index.html): machine learning and statistics for neuroimaging (fMRI) in Python.

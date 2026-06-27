@@ -1,7 +1,7 @@
-# Python for Computational Neuroscience
+# Python for Psychology and Neuroscience 
 
-An introductory Python programming book aimed at students in **computational
-neuroscience** and **experimental psychology**, written as a
+An introductory Python programming book aimed at students interested in using **computational** 
+approaches in psychology and neuroscience, written as a
 [MyST / Jupyter Book 2](https://jupyterbook.org/) site (the MyST-native format
 configured by a single `myst.yml`).
 
@@ -9,13 +9,13 @@ It covers the core of Python (control flow, atomic data types, containers, data
 cleaning, functions, classes) and the scientific stack (`pandas`, `matplotlib`,
 `numpy`), and adds:
 
-* a short **"Applications & Modern Python"** companion to each core chapter, with
-  neuroscience/psychology examples and notes on how the language has changed; plus
-* **Appendix A — A 2-Hour Python Crash Course** for a fast start; and
-* **Appendix B — Coding with AI**, on using tools like Cursor responsibly in science.
+* a short **"Applications and advanced tips"** companion to each core chapter, with
+  psychology/neuroscience examples; plus
+* **Appendix A: Python Crash Course** for a fast start; and
+* **Appendix B: Coding with AI**, on using tools like Cursor responsibly in science.
 
-Throughout, **"Human check"** callouts flag code that can run without error yet be
-scientifically wrong — the places where human judgment matters most.
+Throughout, **"Double check"** callouts flag code that can run without error yet be
+scientifically wrong, the places where human judgment matters most.
 
 ---
 
@@ -32,7 +32,7 @@ scientifically wrong — the places where human judgment matters most.
 ├── course/              # reference pages: debugging guide + extra resources (.md)
 ├── lectures/            # core chapters P01-P09 (.ipynb) + *-applications companions
 │   └── img/             # figures used by the lectures
-├── crash_course/        # Appendix A: the 2-hour crash course
+├── crash_course/        # Appendix A: the Python Crash Course
 ├── ai_coding/           # Appendix B: coding with AI
 └── datasets/            # example datasets used in the notebooks
 ```
@@ -72,7 +72,7 @@ myst start
 
 The built site is written to `_build/html/` (open `_build/html/index.html`).
 
-> **Note — this is Jupyter Book *2* (MyST), not v1.** v1 used `_config.yml` +
+> **Note: this is Jupyter Book *2* (MyST), not v1.** v1 used `_config.yml` +
 > `_toc.yml`; everything now lives in `myst.yml`. If you have an older `jupyter-book`
 > (v1) installed and try `jupyter-book build .`, it will not understand `myst.yml`.
 > Use `myst` (or `jupyter book`, the v2 CLI) instead.
@@ -107,9 +107,9 @@ their outputs, the CI build is pure Node and needs no Python kernel.)
    ```bash
    git init
    git add .
-   git commit -m "Initial commit: Python for Computational Neuroscience"
+   git commit -m "Initial commit: Python for Psychology and Neuroscience"
    git branch -M main
-   git remote add origin https://github.com/jserences/python_for_computational_neuroscience.github.io.git
+   git remote add origin https://github.com/jserences/python_for_psych_neuro.github.io.git
    git push -u origin main
    ```
 
@@ -125,9 +125,9 @@ their outputs, the CI build is pure Node and needs no Python kernel.)
 3. **Done.** Every push to `main` rebuilds and redeploys (watch the **Actions** tab).
    The site will be at:
 
-   * `https://jserences.github.io/python_for_computational_neuroscience.github.io/`
-     — this is the default; the workflow's `BASE_URL` is already set to the repo name
-     to match.
+   * `https://jserences.github.io/python_for_psych_neuro.github.io/`
+     (this is the default; the workflow's `BASE_URL` is already set to the repo name
+     to match).
    * If you instead name the repo literally `jserences.github.io`, it is served at
      `https://jserences.github.io/`; in that case set `BASE_URL: ''` in the workflow.
 
@@ -141,12 +141,12 @@ folder to a `gh-pages` branch (e.g. with `npx gh-pages -d _build/html`), then po
 
 The site has **in-page live compute** enabled (MyST's Thebe, backed by
 [Binder](https://mybinder.org)). On any page with code, readers can start a session
-and actually *run* the cells in their browser — no install required.
+and actually *run* the cells in their browser, with no install required.
 
 How it is wired up:
 
 * `myst.yml` sets `project.jupyter.binder` to point at this repo
-  (`jserences/python_for_computational_neuroscience.github.io`, ref `main`).
+  (`jserences/python_for_psych_neuro.github.io`, ref `main`).
 * `binder/requirements.txt` defines the kernel environment (numpy, pandas,
   matplotlib, scipy, scikit-learn, seaborn). Binder builds from *this* file, not the
   repo-root `requirements.txt`.
@@ -166,7 +166,7 @@ Things to know:
 
 ## Making updates in the future
 
-The notebooks (`.ipynb`) and markdown (`.md`) files are the **source of truth** — edit
+The notebooks (`.ipynb`) and markdown (`.md`) files are the **source of truth**; edit
 them directly in Jupyter, Cursor, or any editor.
 
 * **Edit existing content.** Open the relevant file under `lectures/`, `course/`,
@@ -182,7 +182,7 @@ them directly in Jupyter, Cursor, or any editor.
   a bare `title:` with `children:` makes a section/dropdown).
 * **Change the title, author, logo, or repo link.** Edit `myst.yml`.
 * **Add a Python dependency** used by a notebook: add it to `requirements.txt`.
-* **Publish.** Just `git push` to `main` — the site rebuilds automatically.
+* **Publish.** Just `git push` to `main` and the site rebuilds automatically.
 
 ### How the new chapters were authored
 
@@ -195,6 +195,6 @@ and should be edited directly. There is no need to regenerate them.
 
 ## Credits & license
 
-Material © John Serences (with Ed Vul). Please retain attribution if you reuse or
+Material © John Serences (with some content from Ed Vul). Please retain attribution if you reuse or
 adapt this material, and add a `LICENSE` file appropriate to how you intend to share
 it.
