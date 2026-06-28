@@ -92,7 +92,7 @@ project:
     - title: "Appendix B: Coding with AI"
       children:
         - file: ai_coding/coding-with-ai.ipynb
-    - title: Reference
+    - title: Debugging tips and resources
       children:
         - file: course/debugging.md
         - file: course/resources.md
@@ -103,3 +103,6 @@ site:
     logo: logo.png
     favicon: logo.png
     style: ./custom.css
+    # Hide the author block on every page; the landing page re-enables it via
+    # its own frontmatter (site.hide_authors: false).
+    hide_authors: true
