@@ -14,8 +14,10 @@ cleaning, functions, classes) and the scientific stack (`pandas`, `matplotlib`,
 * **Appendix A: Python Crash Course** for a fast start; and
 * **Appendix B: Coding with AI**, on using tools like Cursor responsibly in science.
 
-Throughout, **"Double check"** callouts flag code that can run without error yet be
-scientifically wrong, the places where human judgment matters most.
+Throughout, **"Advanced tips"** highlight the Pythonic way to do things, and they point to common
+situations where code runs without error yet might be *wrong* for your particular context. These tips also 
+point to situations where you need to be especially careful using AI assistants - ultimately you judgment matters most
+and if you don't know what you're doing, you won't know how to provide guidance for an AI.
 
 ---
 
@@ -39,8 +41,7 @@ scientifically wrong, the places where human judgment matters most.
 
 `_build/` (the generated site) is created by the build and is **not** committed
 (see `.gitignore`). The files `_config.yml.jb1.bak` and `_toc.yml.jb1.bak` are the
-retired Jupyter Book v1 config, kept only for reference; they are not used and can
-be deleted.
+retired Jupyter Book v1 config, kept only for reference.
 
 ---
 
@@ -99,66 +100,105 @@ is the simpler way to refresh everything.
 ## Deploying to GitHub Pages
 
 This repo ships a MyST workflow at `.github/workflows/deploy.yml` that builds the
-site and publishes it every time you push to `main`. (Because the notebooks carry
-their outputs, the CI build is pure Node and needs no Python kernel.)
+site and publishes it to GitHub Pages on every push to `main`. Because the notebooks
+carry their committed outputs, the CI build is pure Node and needs no Python kernel.
+The workflow also **turns Pages on for you** (`enablement: true` on the
+`configure-pages` step), so you do not have to enable Pages by hand first.
 
-1. **Create the GitHub repository** and push this folder:
+### Option A: GitHub Desktop (recommended, no command line)
 
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: Python for Psychology and Neuroscience"
-   git branch -M main
-   git remote add origin https://github.com/jserences/python_for_psych_neuro.github.io.git
-   git push -u origin main
-   ```
+1. **Add the project.** GitHub Desktop → **File → Add Local Repository…** and choose
+   this folder (`python_for_psych_neuro.github.io`). It already has a git history, so
+   Desktop just adopts it.
+2. **Commit anything pending.** In the **Changes** tab, type a summary and click
+   **Commit to main**.
+3. **Publish.** Click **Publish repository** and set:
+   * **Name:** `python_for_psych_neuro.github.io`
+   * **Owner:** `jserences`
+   * **Uncheck "Keep this code private"** — GitHub Pages (on free accounts) and Binder
+     both require a **public** repo.
 
-   > **Note.** The owner is set to the GitHub handle `jserences` throughout (in
-   > `myst.yml`'s `github:` field and the URLs here). A GitHub owner must be a valid
-   > username/org and cannot contain `@` or `.`, so this is **not** the same as the
-   > email `jserences@ucsd.edu`. If your handle differs, change `jserences` here and
-   > in `myst.yml`.
+   Then click **Publish repository** to push `main` to GitHub.
+4. **Watch the build.** On github.com open the **Actions** tab. "MyST GitHub Pages
+   Deploy" runs automatically (~2–4 min); a green check means it is live.
+5. **Visit the site:**
+   `https://jserences.github.io/python_for_psych_neuro.github.io/`
 
-2. **Turn on Pages with the "GitHub Actions" source:**
-   **Settings → Pages → Build and deployment → Source → "GitHub Actions."**
+For later updates: edit files → **Commit to main** → **Push origin**. Each push
+rebuilds and redeploys automatically.
 
-3. **Done.** Every push to `main` rebuilds and redeploys (watch the **Actions** tab).
-   The site will be at:
+### Option B: command line
 
-   * `https://jserences.github.io/python_for_psych_neuro.github.io/`
-     (this is the default; the workflow's `BASE_URL` is already set to the repo name
-     to match).
-   * If you instead name the repo literally `jserences.github.io`, it is served at
-     `https://jserences.github.io/`; in that case set `BASE_URL: ''` in the workflow.
+```bash
+git add .
+git commit -m "Publish site"
+git branch -M main
+git remote add origin https://github.com/jserences/python_for_psych_neuro.github.io.git
+git push -u origin main
+```
 
-To deploy by hand instead, run `myst build --html` and publish the `_build/html`
-folder to a `gh-pages` branch (e.g. with `npx gh-pages -d _build/html`), then point
-**Settings → Pages** at that branch.
+Then watch the **Actions** tab as above.
+
+### If a run fails with "Get Pages site failed … Not Found"
+
+`enablement: true` normally enables Pages automatically on the first run. If you ever
+hit this error anyway, enable it manually once at **Settings → Pages → Build and
+deployment → Source → "GitHub Actions"**, then re-run the job from the **Actions**
+tab. (The "Node.js 20 is deprecated" message in the logs is only a warning and does
+not affect the build.)
+
+### Notes
+
+* **URL / sub-path.** A *project* repo is served from `/<repo-name>`, and the
+  workflow's `BASE_URL` is already `/${{ github.event.repository.name }}`, so the
+  sub-path matches automatically. 
+* **Owner handle.** `jserences` is a GitHub *username*, not the email
+  `jserences@ucsd.edu` (owners cannot contain `@` or `.`).
+* **Manual one-off deploy.** You can also run `myst build --html` locally and publish
+  `_build/html` to a `gh-pages` branch (e.g. `npx gh-pages -d _build/html`), then
+  point **Settings → Pages** at that branch.
 
 ---
 
 ## Live compute (run code in the browser)
 
 The site has **in-page live compute** enabled (MyST's Thebe, backed by
-[Binder](https://mybinder.org)). On any page with code, readers can start a session
-and actually *run* the cells in their browser, with no install required.
+[Binder](https://mybinder.org)). On any page with code, a reader can start a session
+and **run** the cells right in the browser, with nothing to install.
 
-How it is wired up:
+### How binder works
 
-* `myst.yml` sets `project.jupyter.binder` to point at this repo
-  (`jserences/python_for_psych_neuro.github.io`, ref `main`).
+* `myst.yml` → `project.jupyter.binder` points Thebe at this repo
+  (`jserences/python_for_psych_neuro.github.io`, ref `main`, provider `github`).
 * `binder/requirements.txt` defines the kernel environment (numpy, pandas,
-  matplotlib, scipy, scikit-learn, seaborn). Binder builds from *this* file, not the
+  matplotlib, scipy, scikit-learn, seaborn). **Binder builds from this file**, not the
   repo-root `requirements.txt`.
 
-Things to know:
+### Turning binder on
 
-* Live compute only works **after the repo is pushed to GitHub** at the owner/ref in
-  `myst.yml` and mybinder.org has built the image. The **first** launch can take a
-  few minutes while Binder builds; later launches are cached and fast.
-* If you add a library to a notebook, also add it to `binder/requirements.txt` so the
-  live kernel can import it.
-* To point live compute at a different environment or a JupyterHub, edit
+There is no separate Binder deploy step. Once the repo is **public on GitHub** (see
+deployment above), Binder can build it on demand:
+
+1. Open a page with code on the live site.
+2. Click the rocket / **launch** button (or the **run** control on a code cell) to
+   start a Binder session.
+3. The **first** launch tells mybinder.org to build the image from
+   `binder/requirements.txt` — this can take ~1–3 mintes. Later launches reuse the
+   cached image and start in seconds.
+
+**Optional — pre-build so the first reader does not wait:** visit
+`https://mybinder.org/v2/gh/jserences/python_for_psych_neuro.github.io/main` once in a
+browser and let the build finish.
+
+### Keeping it working
+
+* If you `import` a new library in a notebook, **also add it to
+  `binder/requirements.txt`** (otherwise the live kernel cannot import it). Push the
+  change and the next Binder launch rebuilds.
+* Binder runs on free, shared infrastructure: ideal for casual
+  interactivity, but it can be slow or briefly unavailable. For heavy or reliable
+  compute, run the notebooks in JupyterLab locally instead.
+* To use a different backend (another Binder federation member or a JupyterHub), edit
   `project.jupyter` in `myst.yml` (see the
   [MyST in-page execution docs](https://mystmd.org/guide/in-page-execution)).
 
@@ -166,8 +206,8 @@ Things to know:
 
 ## Making updates in the future
 
-The notebooks (`.ipynb`) and markdown (`.md`) files are the **source of truth**; edit
-them directly in Jupyter, Cursor, or any editor.
+The notebooks (`.ipynb`) and markdown (`.md`) files are the source, so edit
+them directly in Jupyter or any editor.
 
 * **Edit existing content.** Open the relevant file under `lectures/`, `course/`,
   `crash_course/`, or `ai_coding/`, make your changes, then preview with
@@ -182,19 +222,12 @@ them directly in Jupyter, Cursor, or any editor.
   a bare `title:` with `children:` makes a section/dropdown).
 * **Change the title, author, logo, or repo link.** Edit `myst.yml`.
 * **Add a Python dependency** used by a notebook: add it to `requirements.txt`.
-* **Publish.** Just `git push` to `main` and the site rebuilds automatically.
-
-### How the new chapters were authored
-
-The `*-applications` companions and the two appendices were generated with a small
-`nbformat` script kept *outside* this repository (so the published book stays clean).
-That was a one-time scaffold; the resulting `.ipynb` files are now the source of truth
-and should be edited directly. There is no need to regenerate them.
+* **Publish.** Commit and push to `main` (in GitHub Desktop: **Commit to main** →
+  **Push origin**, or `git push` on the command line) and the site rebuilds
+  automatically via the Actions workflow.
 
 ---
 
 ## Credits & license
 
-Material © John Serences (with some content from Ed Vul). Please retain attribution if you reuse or
-adapt this material, and add a `LICENSE` file appropriate to how you intend to share
-it.
+Material © John Serences (with content from Ed Vul from ~2021 Computational Social Sciences 001 at UCSD). Please retain attribution if you reuse or adapt this material, and add a `LICENSE` file appropriate to how you intend to share it.
