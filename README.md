@@ -114,7 +114,7 @@ The workflow also **turns Pages on for you** (`enablement: true` on the
    **Commit to main**.
 3. **Publish.** Click **Publish repository** and set:
    * **Name:** `python_for_psych_neuro.github.io`
-   * **Owner:** `jserences`
+   * **Owner:** `JohnSerences`
    * **Uncheck "Keep this code private"** — GitHub Pages (on free accounts) and Binder
      both require a **public** repo.
 
@@ -122,7 +122,7 @@ The workflow also **turns Pages on for you** (`enablement: true` on the
 4. **Watch the build.** On github.com open the **Actions** tab. "MyST GitHub Pages
    Deploy" runs automatically (~2–4 min); a green check means it is live.
 5. **Visit the site:**
-   `https://jserences.github.io/python_for_psych_neuro.github.io/`
+   `https://johnserences.github.io/python_for_psych_neuro.github.io/`
 
 For later updates: edit files → **Commit to main** → **Push origin**. Each push
 rebuilds and redeploys automatically.
@@ -133,7 +133,7 @@ rebuilds and redeploys automatically.
 git add .
 git commit -m "Publish site"
 git branch -M main
-git remote add origin https://github.com/jserences/python_for_psych_neuro.github.io.git
+git remote add origin https://github.com/JohnSerences/python_for_psych_neuro.github.io.git
 git push -u origin main
 ```
 
@@ -152,7 +152,7 @@ not affect the build.)
 * **URL / sub-path.** A *project* repo is served from `/<repo-name>`, and the
   workflow's `BASE_URL` is already `/${{ github.event.repository.name }}`, so the
   sub-path matches automatically. 
-* **Owner handle.** `jserences` is a GitHub *username*, not the email
+* **Owner handle.** `JohnSerences` is the GitHub *username*, not the email
   `jserences@ucsd.edu` (owners cannot contain `@` or `.`).
 * **Manual one-off deploy.** You can also run `myst build --html` locally and publish
   `_build/html` to a `gh-pages` branch (e.g. `npx gh-pages -d _build/html`), then
@@ -169,7 +169,7 @@ and **run** the cells right in the browser, with nothing to install.
 ### How binder works
 
 * `myst.yml` → `project.jupyter.binder` points Thebe at this repo
-  (`jserences/python_for_psych_neuro.github.io`, ref `main`, provider `github`).
+  (`JohnSerences/python_for_psych_neuro.github.io`, ref `main`, provider `github`).
 * `binder/requirements.txt` defines the kernel environment (numpy, pandas,
   matplotlib, scipy, scikit-learn, seaborn). **Binder builds from this file**, not the
   repo-root `requirements.txt`.
@@ -187,7 +187,7 @@ deployment above), Binder can build it on demand:
    cached image and start in seconds.
 
 **Optional — pre-build so the first reader does not wait:** visit
-`https://mybinder.org/v2/gh/jserences/python_for_psych_neuro.github.io/main` once in a
+`https://mybinder.org/v2/gh/JohnSerences/python_for_psych_neuro.github.io/main` once in a
 browser and let the build finish.
 
 ### Keeping it working

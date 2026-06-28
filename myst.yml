@@ -19,7 +19,7 @@ project:
   # The GitHub repo backing the "edit"/source links and the Binder environment.
   # (Owner must be a valid GitHub handle -- an email like jserences@ucsd.edu is
   # not usable here.)
-  github: jserences/python_for_psych_neuro.github.io
+  github: JohnSerences/python_for_psych_neuro.github.io
 
   # Enable in-page LIVE COMPUTE (Thebe) backed by Binder (mybinder.org). Readers
   # get a "run" affordance on code cells and a launch button, and cells execute
@@ -28,7 +28,7 @@ project:
   # below and mybinder.org has built the environment (the first launch is slow).
   jupyter:
     binder:
-      repo: jserences/python_for_psych_neuro.github.io
+      repo: JohnSerences/python_for_psych_neuro.github.io
       ref: main
       provider: github
 
