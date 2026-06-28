@@ -36,6 +36,11 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # Auto-enable GitHub Pages (with the "GitHub Actions" source) on first
+          # run, so the build does not fail with "Get Pages site failed / Not
+          # Found" when Pages has not been turned on manually yet.
+          enablement: true
 
       - uses: actions/setup-node@v4
         with:
