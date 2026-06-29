@@ -3,13 +3,14 @@
 The materials of this book are designed to be self-sufficient, 
 however, there are many reasons why you may want to seek out 
 further resources, including:
-0. tools for improving your understanding
-1. additional introductory practice / perspectives  
-2. deeper understanding of python and computing
-3. more psychology- and neuroscience-relevant python exploration
-4. more guided applications of python in other domains   
 
-## 0. Tools for improving your understanding
+1. tools for improving your understanding
+2. additional introductory practice / perspectives  
+3. deeper understanding of python and computing
+4. more psychology- and neuroscience-relevant python exploration
+5. more guided applications of python in other domains   
+
+## 1. Tools for improving your understanding
 - [Python Tutor](http://www.pythontutor.com/): An interactive online system for understanding how python commands are being interpreted and executed, from Phil Guo.
 
 **Run Python online via shell / IDE** 
@@ -22,7 +23,7 @@ further resources, including:
 - [google colab](https://colab.research.google.com/notebooks/intro.ipynb#recent=true)
 - There are many more similar services, including offerings from Microsoft (Azure), Kaggle, Amazon, etc.
 
-## 1. Alternate Introductory Python approaches:
+## 2. Alternate Introductory Python approaches:
 ### Programming-focused
 - [python.org tutorial](https://docs.python.org/3/tutorial/): very concise tutorial straight from the source.
 - [Think Python](https://www.greenteapress.com/thinkpython/thinkpython.html): Introduction to Programming via Python
@@ -36,7 +37,7 @@ further resources, including:
 - [Elements of data science](https://allendowney.github.io/ElementsOfDataScience/README.html): A Python introduction targeting data science
 - [Computational and Inferential Thinking: The Foundations of Data Science](https://inferentialthinking.com/chapters/intro.html): A very gentle introduction to python, with an emphasis on providing a broad overview of data analysis methods.
 
-## 2. Deeper understanding of Python and computing:
+## 3. Deeper understanding of Python and computing:
 
 ### More intensive books
 - [Introduction to Computation and Programming](https://www.amazon.com/Introduction-Computation-Programming-Using-Python-dp-0262542366/dp/0262542366/ref=dp_ob_title_bk): A great introduction to computation in general.  This would be most useful after you already have some familiarity, as it breezes through basic material.  
@@ -58,14 +59,14 @@ further resources, including:
 - [reference for statsmodels](https://www.statsmodels.org/stable/index.html)
 - [reference for scikit-learn](https://scikit-learn.org/stable/user_guide.html)
 
-## 3. Psychology- and neuroscience-relevant Python resources:
+## 4. Psychology- and neuroscience-relevant Python resources:
 - [Python companion to statistical thinking in the 21st century](https://statsthinking21.github.io/statsthinking21-python/01-IntroductionToPython.html): Introduction to modern psychological/cognitive science statistics, glosses over the requisite python.
 - [MNE-Python](https://mne.tools/stable/index.html): the standard toolbox for analyzing EEG/MEG and other electrophysiology data.
 - [Nilearn](https://nilearn.github.io/stable/index.html): machine learning and statistics for neuroimaging (fMRI) in Python.
 - [PsychoPy](https://www.psychopy.org/): build and run behavioral and psychophysics experiments in Python.
 - [Neuromatch Academy](https://compneuro.neuromatch.io/): an excellent, free, hands-on curriculum in computational neuroscience using Python.
 
-## 4. Guided application of python in other domains:
+## 5. Guided application of python in other domains:
 
 - [Invent with Python](http://inventwithpython.com/): A collection of books guiding you through starter projects that accomplish something immediately useful, via python.  Of particular note:  
     - [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/2e/): an introduction to python focused on interacting with objects and APIs many people have to routinely use to automate tedious tasks.  
