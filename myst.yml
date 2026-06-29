@@ -16,6 +16,7 @@ project:
     - data science
   authors:
     - name: John Serences
+      email: jserences@ucsd.edu
   # The GitHub repo backing the "edit"/source links and the Binder environment.
   # (Owner must be a valid GitHub handle -- an email like jserences@ucsd.edu is
   # not usable here.)
