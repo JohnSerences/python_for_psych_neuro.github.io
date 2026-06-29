@@ -92,9 +92,10 @@ project:
     - title: "Appendix B: Coding with AI"
       children:
         - file: ai_coding/coding-with-ai.ipynb
-    - title: Debugging tips and resources
+    - title: Debugging tips, git, and resources
       children:
         - file: course/debugging.md
+        - file: course/git.md
         - file: course/resources.md
 
 site:
