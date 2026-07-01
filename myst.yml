@@ -41,6 +41,7 @@ project:
   # the old "sections" are now "children". File extensions are required.
   toc:
     - file: index.md
+    - file: course/setup.md
     - title: Content
       children:
         - file: lectures/P01.ipynb
